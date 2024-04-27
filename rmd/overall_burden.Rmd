@@ -20,7 +20,7 @@ DALYs_Table3<-data_overall%>%
   filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
   pivot_wider(names_from = countries, values_from = DALYs)%>%kable()
 
-DALYs_Table3
+DALYs_Table3 
 ```
 
 ## Plot Showing Trends in Overall Disease Burden Over Time
