@@ -23,6 +23,8 @@ DALYs_Table2<-data_ncd%>%
   filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
   pivot_wider(names_from = countries, values_from = DALYs)%>%kable()
 
+DALYs_Table2
+
 ```
 
 ## Plot Showing Trends in NCD Burden Over Time 
