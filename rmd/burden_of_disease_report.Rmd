@@ -15,10 +15,65 @@ This document compares the Disability-Adjusted Life Year (DALY) diseases burden 
 The source data is from the Institute for Health Metrics and Evaluation (IHME) Global Burden of Disease (GBD) study. 
 
 ```{r child='cmnn_burden.Rmd'}
+
+data_cmnn%>%
+  select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)`)%>%
+  filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
+  pivot_wider(names_from = countries, values_from = DALYs)%>%kable()
+
+
+data_cmnn%>%
+  select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)`)%>%
+  filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
+ggplot()+
+  aes(x = year, y= DALYs,color= countries)+
+  geom_line()+
+  geom_point()+
+  theme_minimal()+
+  labs(x="Years", y="Disability-Adjusted Life Years", color="Countries")
+
 ```
 
 ```{r child='ncd_burden.Rmd'}
+
+data_ncd%>%
+  select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - Non-communicable diseases - Sex: Both - Age: Age-standardized (Rate)`)%>%
+  filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
+  pivot_wider(names_from = countries, values_from = DALYs)%>%kable()
+
+
+DALYs_graph2<-data_ncd%>%
+  select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - Non-communicable diseases - Sex: Both - Age: Age-standardized (Rate)`)%>%
+  filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
+  filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
+ggplot()+
+  aes(x = year, y= DALYs,color= countries)+
+  geom_line()+
+  geom_point()+
+  theme_minimal()+
+  labs(x="Years", y="Disability-Adjusted Life Years", color="Countries")
+
+
 ```
 
 ```{r child='overall_burden.Rmd'}
+
+data_overall%>%
+  select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - All causes - Sex: Both - Age: Age-standardized (Rate)`)%>%
+  filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
+  pivot_wider(names_from = countries, values_from = DALYs)%>%kable()
+
+
+data_overall%>%
+  select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - All causes - Sex: Both - Age: Age-standardized (Rate)`)%>%
+  filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
+ggplot()+
+  aes(x = year, y= DALYs,color= countries)+
+  geom_line()+
+  geom_point()+
+  theme_minimal()+
+  labs(x="Years", y="Disability-Adjusted Life Years", color="Countries")
+
 ```
+
+
