@@ -14,15 +14,35 @@ data_overall <- read_csv(here("data", "burden-of-disease-all-causes.csv"))
 # Here render a table for the DALY burden over time for the three countries 
 # You should pivot the data to show each country in a separate column.
 # Use kable() from the knitr package to render the table.
+
+
 ```
 
 ## Plot Showing Trends in Overall Disease Burden Over Time
 
 ```{r}
 # Here, plot a line graph showing the trend of DALY burden for the chosen countries over time. You can use ggplot2 to create this plot. Each country's line should be a different color.
+
+
+View (data_overall)
+data_overall%>%
+  select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - All causes - Sex: Both - Age: Age-standardized (Rate)`)%>%
+  filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
+ggplot()+
+  aes(x = year, y= DALYs,color= countries)+
+  geom_line()+
+  geom_point()+
+  theme_minimal()+
+  labs(x="Years", y="Disability-Adjusted Life Years", color="Countries")
 ```
 
 ## Summary of Overall Disease Burden Findings
 
 Provide a brief analysis based on the data presented in the table and chart. Highlight any significant findings or patterns. About 3 sentences.
+
+
+- We observe an overall decrease in DALYs annually for all three countries, with significant fluctuations between 1990 and 2020 for Angola and Congo.
+
+
+- The DALYs trend in Congo is notably different from that of Angola and Côte d'Ivoire.
 

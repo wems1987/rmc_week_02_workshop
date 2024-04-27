@@ -11,7 +11,12 @@ In this workshop, you will work in groups of 2-3 to create a report on the burde
 
 You can see a minimal example output of the report here: [https://github.com/the-graph-courses/misc_public/blob/main/rmc_week_02_workshop/rmd/burden_of_disease_report.md](https://github.com/the-graph-courses/misc_public/blob/main/rmc_week_02_workshop/rmd/burden_of_disease_report.md){target="_blank"}.
 
-# TASK 1: FORK AND CLONE THE REPO
+# TASK 1: FORK AND CLONE THE REPO 
+
+```{r}
+## I worked alone as I am late. I spent alot of time on Fondation of Data analysis with R
+```
+
 
 Pick one group member to be the repo "owner". They will fork the template repository from here: [https://github.com/the-graph-courses/rmc_week_02_workshop](https://github.com/the-graph-courses/rmc_week_02_workshop){target="_blank"}.
 
@@ -21,7 +26,10 @@ All group members should then clone the repo to their local machines.
 
 # TASK 2: CHOOSE THREE COUNTRIES 
 
-As a group, decide on three countries you want to analyze and compare in your report. Make sure each group member knows which countries were selected.
+```{r}
+#I am gonna work on all three countries
+```
+
 
 # TASK 3: COMPLETE THE CHILD DOCUMENTS
 

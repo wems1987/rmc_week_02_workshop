@@ -11,19 +11,51 @@ data_cmnn <- read_csv(here("data", "burden-of-disease-cmnn.csv"))
 ## Table of Estimates for CMNN Burden Over Time
 
 ```{r}
+
 # Here render a table for the DALY burden over time for the three countries 
 # You should pivot the data to show each country in a separate column.
 # Use kable() from the knitr package to render the table.
+
+data_cmnn%>%
+  select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)`)%>%
+  filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
+  pivot_wider(names_from = countries, values_from = DALYs)%>%kable()
+
+
+  
+
 ```
 
 ## Plot Showing Trends in CMNN Burden Over Time
 
 ```{r}
+
 # Here, plot a line graph showing the trend of DALY burden for the chosen countries over time. You can use ggplot2 to create this plot. Each country's line should be a different color.
+
+data_cmnn%>%
+  select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)`)%>%
+  filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
+ggplot()+
+  aes(x = year, y= DALYs,color= countries)+
+  geom_line()+
+  geom_point()+
+  theme_minimal()+
+  labs(x="Years", y="Disability-Adjusted Life Years", color="Countries")
+
+
 ```
 
 ## Summary of CMNN Burden Findings
 
 Provide a brief analysis based on the data presented in the table and chart. Highlight any significant findings or patterns. About 3 sentences.
+
+
+- Overall, we observe a decrease in DALYs over time across all three countries.
+
+- However, the trend in DALYs for Côte d'Ivoire is notably distinct from that of Angola and Congo.
+
+- Angola and Congo exhibit a similar trend.
+
+
 
 
