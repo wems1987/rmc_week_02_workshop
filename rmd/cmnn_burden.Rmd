@@ -42,7 +42,7 @@ ggplot()+
   theme_minimal()+
   labs(x="Years", y="Disability-Adjusted Life Years", color="Countries")
 
-
+DALYs_graph
 ```
 
 ## Summary of CMNN Burden Findings
