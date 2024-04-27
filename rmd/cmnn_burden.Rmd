@@ -21,7 +21,7 @@ DALYs_Table<- data_cmnn%>%
   filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
   pivot_wider(names_from = countries, values_from = DALYs)%>%kable()
 
-
+DALYs_Table
   
 
 ```
