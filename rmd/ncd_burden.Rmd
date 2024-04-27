@@ -40,6 +40,8 @@ ggplot()+
   geom_point()+
   theme_minimal()+
   labs(x="Years", y="Disability-Adjusted Life Years", color="Countries")
+
+DALYs_graph2
 ```
 
 ## Summary of NCD Burden Findings
