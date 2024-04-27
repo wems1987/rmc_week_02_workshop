@@ -16,7 +16,7 @@ data_cmnn <- read_csv(here("data", "burden-of-disease-cmnn.csv"))
 # You should pivot the data to show each country in a separate column.
 # Use kable() from the knitr package to render the table.
 
-data_cmnn%>%
+DALYs_Table<- data_cmnn%>%
   select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)`)%>%
   filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
   pivot_wider(names_from = countries, values_from = DALYs)%>%kable()
@@ -32,7 +32,7 @@ data_cmnn%>%
 
 # Here, plot a line graph showing the trend of DALY burden for the chosen countries over time. You can use ggplot2 to create this plot. Each country's line should be a different color.
 
-data_cmnn%>%
+DALYs_graph<-data_cmnn%>%
   select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)`)%>%
   filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
 ggplot()+

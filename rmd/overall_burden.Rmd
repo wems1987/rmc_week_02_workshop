@@ -15,7 +15,10 @@ data_overall <- read_csv(here("data", "burden-of-disease-all-causes.csv"))
 # You should pivot the data to show each country in a separate column.
 # Use kable() from the knitr package to render the table.
 
-
+DALYs_Table3<-data_overall%>%
+  select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - All causes - Sex: Both - Age: Age-standardized (Rate)`)%>%
+  filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
+  pivot_wider(names_from = countries, values_from = DALYs)%>%kable()
 ```
 
 ## Plot Showing Trends in Overall Disease Burden Over Time
@@ -24,8 +27,7 @@ data_overall <- read_csv(here("data", "burden-of-disease-all-causes.csv"))
 # Here, plot a line graph showing the trend of DALY burden for the chosen countries over time. You can use ggplot2 to create this plot. Each country's line should be a different color.
 
 
-View (data_overall)
-data_overall%>%
+DALYs_graph3<-data_overall%>%
   select(countries= Entity,year=Year, DALYs=`DALYs (Disability-Adjusted Life Years) - All causes - Sex: Both - Age: Age-standardized (Rate)`)%>%
   filter(countries %in% c("Congo", "Angola", "Cote d'Ivoire"))%>%
 ggplot()+
