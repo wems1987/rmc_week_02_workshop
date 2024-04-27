@@ -1,6 +1,6 @@
 ---
 title: "Global Disease Burden Analysis"
-author: "REPLACE WITH THE AUTHOR NAMES" # AUTHOR NAMES HERE!
+author: "Bruce Shinga WEMBULUA" # AUTHOR NAMES HERE!
 output: github_document
 ---
 
